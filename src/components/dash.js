@@ -3,7 +3,10 @@ import Nav from './nav.js';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default class Dash extends Component{
+import { connect } from 'react-redux';
+import { shareAnimalCount } from '../ducks/reducer.js';
+
+class Dash extends Component{
 
     constructor(props){
         super(props)
@@ -51,6 +54,8 @@ export default class Dash extends Component{
                     </div>
                 )
             })
+            console.log('pets.length is...', pets.length)
+            this.props.shareAnimalCount(pets.length);
         }
 
         return (
@@ -61,7 +66,11 @@ export default class Dash extends Component{
                 <button onClick={()=>this.sub()}> subtract - </button>
                 <br/>
                 {pets}
+                <br/>
+                <Link to='/addpet'>add your own!</Link>
             </div>
         )
     }
 }
+
+export default connect(null,{shareAnimalCount})(Dash);

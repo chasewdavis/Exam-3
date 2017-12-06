@@ -45,7 +45,7 @@ export default class ViewPet extends Component{
 
         return (
             <div>
-                <Nav/>
+                <Nav mini={this.props.match.params.id} pet={this.state.petname}/>
                 ViewPet Component
                 <br/>
                 you are looking at <span> {this.state.pet.petname} </span>
