@@ -14,6 +14,11 @@ class App extends Component {
           <Route component={Dash} exact path='/' />
           <Route component={ViewPet} path='/viewpet/:id'/>
           <Route component={AddPet} path='/addpet'/>
+          <Route path="/render" exact={false} 
+          
+            render={ () => <div>LOOK AT ME, RENDERING THROUGH ROUTES</div>}
+
+          />
         </Switch>
       </div>
     );
